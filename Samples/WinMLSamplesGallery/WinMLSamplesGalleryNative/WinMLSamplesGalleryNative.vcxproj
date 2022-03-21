@@ -14,7 +14,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
-    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.19041.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.17134.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -126,7 +126,7 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ResourceCompile>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(MSBuildThisFileDirectory)../WinMLSamplesGallery/Models/;$(MSBuildThisFileDirectory)../../build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../WinMLSamplesGallery/Models/;$(MSBuildThisFileDirectory)../../build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -150,10 +150,11 @@
       <AdditionalDependencies Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ResourceCompile>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(MSBuildThisFileDirectory)../WinMLSamplesGallery/Models/;$(MSBuildThisFileDirectory)../../build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)../WinMLSamplesGallery/Models/;$(MSBuildThisFileDirectory)../../build/native/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AdapterList.h" />
     <ClInclude Include="Capture.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="EncryptedModels.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="WeakBuffer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdapterList.cpp" />
     <ClCompile Include="Capture.cpp" />
     <ClCompile Include="EncryptedModels.cpp" />
     <ClCompile Include="OpenCVImage.cpp" />
