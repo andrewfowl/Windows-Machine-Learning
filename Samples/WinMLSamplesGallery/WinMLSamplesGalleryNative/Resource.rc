@@ -63,6 +63,11 @@ BEGIN
     POPUP "Capture"
     BEGIN
         MENUITEM "Choose Device",               ID_CAPTURE_CHOOSEDEVICE
+        POPUP "Choose Model"
+        BEGIN
+            MENUITEM "Style Transfer",              ID_CHOOSEMODEL_STYLETRANSFER
+            MENUITEM "Background Blur",             ID_CHOOSEMODEL_BACKGROUNDBLUR
+        END
         MENUITEM "Start Preview",               ID_CAPTURE_PREVIEW
     END
 END

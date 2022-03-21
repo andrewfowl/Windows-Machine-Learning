@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BackgroundBlur", "..\BackgroundBlur\BackgroundBlur\BackgroundBlur.vcxproj", "{7519DDE1-9348-4054-81AA-0456DAC71CBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|arm64 = Debug|arm64
@@ -80,6 +82,18 @@ Global
 		{8E1F2E33-58A3-4454-926E-1C98B93A2A30}.Release|x64.Build.0 = Release|x64
 		{8E1F2E33-58A3-4454-926E-1C98B93A2A30}.Release|x86.ActiveCfg = Release|x86
 		{8E1F2E33-58A3-4454-926E-1C98B93A2A30}.Release|x86.Build.0 = Release|x86
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Debug|arm64.ActiveCfg = Debug|x64
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Debug|arm64.Build.0 = Debug|x64
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Debug|x64.ActiveCfg = Debug|x64
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Debug|x64.Build.0 = Debug|x64
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Debug|x86.ActiveCfg = Debug|Win32
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Debug|x86.Build.0 = Debug|Win32
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Release|arm64.ActiveCfg = Release|x64
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Release|arm64.Build.0 = Release|x64
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Release|x64.ActiveCfg = Release|x64
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Release|x64.Build.0 = Release|x64
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Release|x86.ActiveCfg = Release|Win32
+		{7519DDE1-9348-4054-81AA-0456DAC71CBD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

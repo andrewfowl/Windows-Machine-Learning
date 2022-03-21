@@ -510,7 +510,7 @@ namespace winrt::WinMLSamplesGalleryNative::implementation
         RegisterClass(&wc);
 
         g_hwnd = CreateWindowEx(
-            0, CLASS_NAME, L"Capture Application", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
+            0, CLASS_NAME, L"Capture Application", WS_OVERLAPPED, CW_USEDEFAULT, CW_USEDEFAULT,
             CW_USEDEFAULT, CW_USEDEFAULT, galleryHwnd, NULL, hmodule, NULL
         );
 

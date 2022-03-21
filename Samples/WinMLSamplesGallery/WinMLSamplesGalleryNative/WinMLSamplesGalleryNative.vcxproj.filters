@@ -27,7 +27,9 @@
     <ClCompile Include="SegmentModel.cpp">
       <Filter>StreamEffect</Filter>
     </ClCompile>
-    <ClCompile Include="TransformBlur.cpp" />
+    <ClCompile Include="TransformBlur.cpp">
+      <Filter>StreamEffect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

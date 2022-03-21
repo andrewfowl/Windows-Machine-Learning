@@ -36,7 +36,7 @@ namespace WinMLSamplesGallery.Samples
             currentHwnd = GetForegroundWindow();
             //var modelName = "mosaic.onnx";
             modelPath = Path.Join(Windows.ApplicationModel.Package.Current.InstalledLocation.Path, "Models");
-            
+
         }
 
         // TODO: If keep in a separate window, send a task to shut down all stream effect processes
