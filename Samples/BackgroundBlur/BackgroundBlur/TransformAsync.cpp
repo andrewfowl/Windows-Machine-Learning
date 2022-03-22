@@ -30,7 +30,7 @@ const GUID* g_MediaSubtypes[] =
 DWORD g_cNumSubtypes = ARRAY_SIZE(g_MediaSubtypes);
 HRESULT GetImageSize(FOURCC fcc, UINT32 width, UINT32 height, DWORD* pcbImage);
 
-HRESULT TransformAsync::CreateInstance(IMFTransform** ppMFT)
+HRESULT TransformAsync::CreateInstance(GUID effect, IMFTransform** ppMFT)
 {
     HRESULT hr = S_OK; 
     winrt::com_ptr<TransformAsync> pMFT;
@@ -43,7 +43,9 @@ HRESULT TransformAsync::CreateInstance(IMFTransform** ppMFT)
     {
         CHECK_HR(hr = E_OUTOFMEMORY);
     }
-
+    if (effect != GUID_NULL) {
+        pMFT->SetStreamEffect(effect);
+    }
     CHECK_HR(hr = pMFT->InitializeTransform());
     CHECK_HR(hr = pMFT->QueryInterface(IID_IMFTransform, (void**)ppMFT))
 
@@ -104,6 +106,10 @@ TransformAsync::~TransformAsync()
         m_spOutputSampleAllocator->Release();
     }
 
+}
+
+void TransformAsync::SetStreamEffect(GUID effect) {
+    m_gStreamEffect = effect;
 }
 
 #pragma region IUnknown
@@ -742,7 +748,7 @@ HRESULT TransformAsync::InitializeTransform(void)
     // Set up circular queue of IStreamModels
     for (int i = 0; i < m_numThreads; i++) {
         // TODO: Have a dialogue to select which model to select for real-time inference. 
-        m_models.push_back(std::make_unique<BackgroundBlur>());
+        m_models.push_back(std::make_unique<m_gStreamEffect>());
     }
 
 done: 

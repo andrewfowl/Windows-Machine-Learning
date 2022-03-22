@@ -129,6 +129,7 @@ protected:
 }; 
 
 
+class __declspec(uuid("3794D956-7B54-427E-95EA-3FA04B47AAEE")) StyleTransfer;
 class StyleTransfer : public IStreamModel {
 public:
 	StyleTransfer(int w, int h) : IStreamModel(w, h) 
@@ -144,6 +145,7 @@ private:
 };
 
 
+class __declspec(uuid("F3E1AAAB-333E-46B7-B859-91B78CFC3109")) BackgroundBlur;
 class BackgroundBlur : public IStreamModel
 {
 public:

@@ -8,6 +8,7 @@
 #include <Shlwapi.h>
 #include <powrprof.h>
 #include <KnownFolders.h>
+#include "Capture.h"
 
 CaptureManager* g_pEngine = NULL;
 HPOWERNOTIFY    g_hPowerNotify = NULL;
@@ -453,7 +454,13 @@ namespace MainWindow
                 OnStartPreview(hwnd);
             }
             break;
+        case ID_CHOOSEMODEL_STYLETRANSFER:
+        case ID_CHOOSEMODEL_BACKGROUNDBLUR:
+            break;
         }
+        
+
+
     }
 
 

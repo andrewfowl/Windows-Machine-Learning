@@ -49,7 +49,7 @@ class TransformAsync :
     public IUnknown
 {
 public: 
-    static HRESULT CreateInstance(IMFTransform** ppMFT);
+    static HRESULT CreateInstance(GUID effect, IMFTransform** ppMFT);
 
 #pragma region IUnknown
     // IUnknown
@@ -228,6 +228,7 @@ protected:
     ~TransformAsync();
     HRESULT InitializeTransform(void);
     HRESULT             ShutdownEventQueue(void);
+    void SetStreamEffect(GUID effect);
 
     /******* MFT Helpers **********/
     HRESULT OnGetPartialType(DWORD dwTypeIndex, IMFMediaType** ppmt);
@@ -280,7 +281,6 @@ protected:
     volatile ULONG m_currFrameNumber; // The current frame to be processing
 
 
-
     // Event fields
     DWORD                           m_dwStatus;
     winrt::com_ptr<IMFMediaEventQueue> m_spEventQueue;
@@ -299,6 +299,7 @@ protected:
     UINT32                          m_imageWidthInPixels;
     UINT32                          m_imageHeightInPixels;
     DWORD                           m_cbImageSize;          // Image size, in bytes.
+    GUID                            m_gStreamEffect;
 
     // D3D fields
     winrt::com_ptr<IMFDXGIDeviceManager>       m_spDeviceManager;
@@ -310,7 +311,7 @@ protected:
 
     // Model Inference fields
     // TODO: Prob needs to be a vector so can dynamically allocate based on what numThreads ends up as.
-    std::vector<std::unique_ptr<IStreamModel>> m_models; 
+    std::vector<std::unique_ptr<IStreamModel>> m_models;
     std::condition_variable thread; // Used to notify a thread of an available job
     int m_numThreads = 5;//std::thread::hardware_concurrency(); // TODO: See if this actually is helpful
 

@@ -33,6 +33,7 @@
 #include <d3d11.h>
 #include <initguid.h>
 #include "Helpers/common.h"
+#include "SegmentModel.h"
 
 const UINT WM_APP_CAPTURE_EVENT = WM_APP + 1;
 
@@ -113,10 +114,10 @@ class CaptureManager
     HWND                    m_hwndEvent;
     HWND                    m_hwndPreview;
 
-    IMFCaptureEngine* m_pEngine;        // Manages the capture engine (ie. the camera) 
-    IMFCapturePreviewSink* m_pPreview;  // Manages the preview sink (ie. the video window) 
+    IMFCaptureEngine*       m_pEngine;        // Manages the capture engine (ie. the camera) 
+    IMFCapturePreviewSink*  m_pPreview;  // Manages the preview sink (ie. the video window) 
 
-    CaptureEngineCB* m_pCallback;
+    CaptureEngineCB*        m_pCallback;
 
     bool                    m_bPreviewing;
 
@@ -124,6 +125,8 @@ class CaptureManager
     HANDLE                  m_hEvent;
     HANDLE                  m_hpwrRequest;
     bool                    m_fPowerRequestSet;
+    GUID                    m_gStreamEffect;
+
 
     CaptureManager(HWND hwnd) :
         m_hwndEvent(hwnd), m_hwndPreview(NULL), m_pEngine(NULL), m_pPreview(NULL),
@@ -211,7 +214,7 @@ public:
 
     HRESULT OnCaptureEvent(WPARAM wParam, LPARAM lParam); 
     HRESULT SetVideoDevice(IUnknown *pUnk);
-    HRESULT StartPreview();
+    HRESULT StartPreview(GUID effect);
     HRESULT StopPreview();
 
     void    SleepState(bool fSleeping)
